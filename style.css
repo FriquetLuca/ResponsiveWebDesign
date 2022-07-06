@@ -6,25 +6,30 @@ html, body
     color: rgb(172, 186, 204);
     background-color: blue;/*#202020*/
 }
-.content
+body
 {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    text-align: center;
-    font-size: xx-large;
+    display: grid; 
+    grid-auto-flow: column dense; 
+    grid-template-columns: auto auto auto; 
+    grid-template-rows: auto; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        ". . ."; 
 }
 #large
 {
-    visibility: visible;
+    font-size: xx-large;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
 }
 #medium
 {
-    visibility: hidden;
+    font-size: x-large;
 }
 #small
 {
-    visibility: hidden;
+    font-size: large;
 }
 @media (max-width: 1024px)
 {
@@ -32,21 +37,21 @@ html, body
     {
         background-color: green;
     }
+    body
+    {
+        display: grid; 
+        grid-auto-flow: row dense; 
+        grid-template-columns: auto auto; 
+        grid-template-rows: auto auto; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            ". ."
+            ". .";
+    }
     #large
     {
-        visibility: hidden;
-    }
-    #medium
-    {
-        visibility: visible;
-    }
-    #small
-    {
-        visibility: hidden;
-    }
-    .content
-    {
-        font-size: x-large;
+        grid-column: span 2;
+        text-align: center;
     }
 }
 @media (max-width: 600px)
@@ -55,20 +60,20 @@ html, body
     {
         background-color: red;
     }
+    body
+    {
+        display: grid; 
+        grid-auto-flow: column dense; 
+        grid-template-columns: 1.0fr; 
+        grid-template-rows: auto auto auto; 
+        gap: 0px 10px; 
+        grid-template-areas: 
+            "."
+            "."
+            "."; 
+    }
     #large
     {
-        visibility: hidden;
-    }
-    #medium
-    {
-        visibility: hidden;
-    }
-    #small
-    {
-        visibility: visible;
-    }
-    .content
-    {
-        font-size: large;
+        text-align: left;
     }
 }
